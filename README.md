@@ -1,44 +1,38 @@
-# ✨An Efficient and Convenient Spring Boot General Controller Framework✨
+# ✨高效便捷的 Spring Boot 通用控制器框架✨
 
-## I. Introduction
+## 一、简介
 
-In the Java development landscape, the repetitive task of writing basic code from scratch can be both time - consuming and resource - intensive. This framework, built upon Spring Boot and MyBatis - Plus, features a meticulously designed general controller class, `BaseController`. Its primary objective is to alleviate developers from the onerous burden of writing fundamental interfaces in their day - to - day development work.
+在 Java 开发中，重复性的基础接口编写工作常令人头疼。本框架基于 Spring Boot 与 MyBatis-Plus，精心构建通用控制器类`BaseController`，旨在为开发者排忧解难，极大减少繁琐的代码编写量。
 
-## II. Core Advantages
+## 二、核心优势
 
-### (I) One - click Inheritance for Instant Interfaces
+### （一）一键继承，接口立得
 
-By simply inheriting the common `BaseController` class, developers can rapidly acquire a comprehensive set of interface systems. There's no longer a need to painstakingly write create, read, update, and delete (CRUD) operation code line by line, thereby saving a significant amount of development time. Take the development of an interface for a new student - related table as an example:
+开发者仅需继承公用的`BaseController`类，即可迅速获得一套完备的接口体系，涵盖增删改查及精确、模糊查询等功能，无需手动编写大量基础代码，极大节省开发时间。以学生相关接口开发为例：
 
-Create a `Student` entity class and precisely define the fields corresponding to the database table.
+定义`Student`实体类，明确与数据库表对应的字段。
 
-Develop the service interface and its implementation class for the `Student` entity.
+编写`Student`实体类对应的服务接口和实现类。
 
-Construct a `StudentController` that inherits from `BaseController<Student>`.
+创建`StudentController`，继承`BaseController<Student>`。
 
-Once these steps are completed, you'll immediately have access to a full range of interfaces for the student table, including CRUD, exact query, and fuzzy query capabilities.
+完成上述步骤后，便立即拥有针对学生表的各类接口。
 
-### (II) Rich Built - in Query Functions
+### （二）内置丰富查询功能
 
-**Exact Query**: When an entity object with query conditions is passed in, the framework automatically iterates through the object's fields. Non - empty fields are then used as exact query conditions to precisely pinpoint the required data.
+**精确查询**：传入包含查询条件的`Student`实体对象，框架自动遍历对象字段，将非空字段作为精确查询条件，精准定位所需数据。
 
-**Fuzzy Query**: For string - type fields, the framework offers a convenient fuzzy query function. By passing in an entity object, the framework automatically filters out string fields for fuzzy matching, catering to diverse query needs.
+**模糊查询**：对于字符串类型字段，框架自动筛选并进行模糊匹配，满足多样化查询需求。
 
-**Creation**: After inheriting `BaseController`, using the built - in creation method, developers can easily add data to the database by passing in a complete entity object in the request body. The framework takes care of all the details of interacting with the database to ensure accurate data insertion.
+### （三）基于流行框架，稳定可靠
 
-**Update**: When data in the database needs to be updated, the framework's update method is called. By passing in an entity object containing the fields to be updated and their new values in the request body, the framework locates the corresponding record in the database based on the unique identifier (such as an ID) in the entity object and updates it, ensuring data currency and accuracy.
+本框架依托强大的 Spring Boot 和 MyBatis-Plus 框架。Spring Boot 简化项目搭建与配置，MyBatis-Plus 增强数据库操作便捷性。两者协同，确保框架高效运行，具备良好扩展性与维护性。
 
-**Deletion**: By invoking the framework's deletion method and passing in the unique identifier (such as an ID) of the record to be deleted, the framework promptly removes the corresponding record from the database, enabling efficient database data management.
+## 三、使用示例
 
-### (III) Reliable and Scalable, Based on Popular Frameworks
+假设要为`Student`表创建接口：
 
-This framework is powered by the robust Spring Boot and MyBatis - Plus frameworks. Spring Boot streamlines project setup and configuration, while MyBatis - Plus enhances the convenience of database operations. The synergy between the two not only guarantees the framework's efficient operation but also endows it with excellent scalability and maintainability.
-
-## III. Usage Examples
-
-Assume we need to create an interface for a `Student` table:
-
-**Create an Entity Class**
+**创建实体类**：定义与数据库表对应的`Student`实体类，如：
 
 
 
@@ -53,38 +47,18 @@ import lombok.Data;
 
 public class Student {
 
-          private Long id;
+           private Long id;
 
-          private String name;
+           private String name;
 
-          private Integer age;
-
-}
-```
-
-**Create a Service Interface and Implementation Class**
-
-
-
-```
-import com.baomidou.mybatisplus.extension.service.IService;
-
-public interface StudentService extends IService\<Student> {
-
-}
-
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-
-import org.springframework.stereotype.Service;
-
-@Service
-
-public class StudentServiceImpl extends ServiceImpl\<StudentMapper, Student> implements StudentService {
+           private Integer age;
 
 }
 ```
 
-**Create a Controller Class**
+**创建服务接口和实现类**：编写接口及实现类，实现类继承自 MyBatis-Plus 的`ServiceImpl`。
+
+**创建控制器类**：
 
 
 
@@ -95,66 +69,66 @@ public class StudentServiceImpl extends ServiceImpl\<StudentMapper, Student> imp
 
 public class StudentController extends BaseController\<Student> {
 
-          // Assume StudentService has been injected
+           // 假设已注入StudentService
 
-          public StudentController(StudentService studentService) {
+           public StudentController(StudentService studentService) {
 
-              super(studentService);
+               super(studentService);
 
-          }
+           }
 
 }
 ```
 
-## IV. Dependencies and Running Instructions
+## 四、依赖与运行
 
-### (I) Maven Dependencies
+### （一）Maven 依赖
 
-Add the following dependencies to the project's `pom.xml` file:
+在项目`pom.xml`文件中添加以下依赖：
 
 
 
 ```
 <dependencies>
 
-          <!-- Spring Boot Starter Web -->
+           <!-- Spring Boot Starter Web -->
 
-          <dependency>
+           <dependency>
 
-              <groupId>org.springframework.boot\</groupId>
+               <groupId>org.springframework.boot\</groupId>
 
-              <artifactId>spring-boot-starter-web\</artifactId>
+               <artifactId>spring-boot-starter-web\</artifactId>
 
-          </dependency>
+           </dependency>
 
-          <!-- MyBatis - Plus Starter -->
+           <!-- MyBatis-Plus Starter -->
 
-          <dependency>
+           <dependency>
 
-              <groupId>com.baomidou\</groupId>
+               <groupId>com.baomidou\</groupId>
 
-              <artifactId>mybatis-plus-boot-starter\</artifactId>
+               <artifactId>mybatis-plus-boot-starter\</artifactId>
 
-              <version>\[latest version]\</version>
+               <version>最新版本\</version>
 
-          </dependency>
+           </dependency>
 
-          <!-- Other possible dependencies, such as database drivers -->
+           <!-- 其他可能的依赖，如数据库驱动等 -->
 
 </dependencies>
 ```
 
-### (II) Cloning the Repository and Running the Project
+### （二）克隆仓库与运行
 
-**Clone the Repository**: Execute the following command in the terminal to clone the project to your local machine.
+**克隆仓库**：在终端执行以下命令，将项目克隆到本地。
 
 
 
 ```
-git clone [repository URL]
+git clone [仓库地址]
 ```
 
-**Run the Project**: Navigate to the project directory and execute the following command to start the project.
+**运行项目**：进入项目目录，执行以下命令启动项目。
 
 
 
@@ -162,8 +136,8 @@ git clone [repository URL]
 mvn install
 ```
 
-Once the project is up and running, you can perform operations on student data through the corresponding interfaces.
+项目启动后，即可通过相应接口对学生数据进行操作。
 
-## V. Conclusion
+## 五、总结
 
-This framework serves as an efficient and convenient development tool for Java developers, significantly enhancing development efficiency and reducing development costs. Whether for the rapid iteration of small - scale projects or the infrastructure building of large - scale projects, it can play a crucial role. We invite you to give it a try and experience how it can make your development process easier and more enjoyable!
+本框架为 Java 开发者提供了高效便捷的开发工具，显著提升开发效率，降低开发成本。无论是小型项目快速迭代，还是大型项目基础架构搭建，均可发挥重要作用。欢迎尝试使用，让开发变得轻松愉悦！
