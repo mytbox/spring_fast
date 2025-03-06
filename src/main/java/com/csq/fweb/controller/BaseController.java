@@ -27,16 +27,16 @@ public class BaseController<T> {
         this.baseService = baseService;
     }
 
-    @Operation(summary = "Get all the record information")
+    @Operation(summary = "获取所有记录信息")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "All record information was successfully obtained",
+            @ApiResponse(responseCode = "200", description = "成功获取所有记录信息",
                     content = {
                             @Content(mediaType = "application/json",
                                     schema = @Schema(implementation = Result.class,
                                             subTypes = {List.class},
-                                            description = "A generic return result, including a list of record information"))
+                                            description = "通用返回结果，包含记录信息列表"))
                     }),
-            @ApiResponse(responseCode = "500", description = "The query failed",
+            @ApiResponse(responseCode = "500", description = "查询失败",
                     content = @Content)
     })
     @GetMapping
@@ -45,7 +45,7 @@ public class BaseController<T> {
             List<T> list = baseService.list();
             return Result.success(list);
         } catch (Exception e) {
-            return Result.error(HttpStatus.INTERNAL_SERVER_ERROR.value(), "The query failed: " + e.getMessage());
+            return Result.error(HttpStatus.INTERNAL_SERVER_ERROR.value(), "查询失败: " + e.getMessage());
         }
     }
 

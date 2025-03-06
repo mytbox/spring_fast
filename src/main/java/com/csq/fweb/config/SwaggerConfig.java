@@ -12,8 +12,8 @@ public class SwaggerConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                .info(new Info()
-                       .title("STUDENT INFORMATION MANAGEMENT API")
-                       .description("Provide addition, deletion, modification and query operations of student information")
+                       .title("学生信息管理 API")
+                       .description("提供学生信息的增删改查操作")
                        .version("1.0.0"));
     }
 }

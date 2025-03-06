@@ -8,21 +8,21 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Schema(description = "generic return result class")
+@Schema(description = "通用返回结果类")
 public class Result<T> {
-    @Schema(description = "status code", example = "200")
+    @Schema(description = "状态码", example = "200")
     private int code;
-    @Schema(description = "Message", example = "The operation was successful")
+    @Schema(description = "消息", example = "操作成功")
     private String message;
-    @Schema(description = "Data")
+    @Schema(description = "数据")
     private T data;
 
     public static <T> Result<T> success(T data) {
-        return new Result<>(200, "The operation was successful", data);
+        return new Result<>(200, "操作成功", data);
     }
 
     public static <T> Result<T> success() {
-        return new Result<>(200, "The operation was successful", null);
+        return new Result<>(200, "操作成功", null);
     }
 
     public static <T> Result<T> error(int code, String message) {
