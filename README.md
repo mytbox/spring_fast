@@ -67,7 +67,7 @@ public class Student {
 
 @RequestMapping("/students")
 
-public class StudentController extends BaseController\<Student> {
+public class StudentController extends BaseController<Student> {
 
            // 假设已注入StudentService
 
@@ -95,9 +95,9 @@ public class StudentController extends BaseController\<Student> {
 
            <dependency>
 
-               <groupId>org.springframework.boot\</groupId>
+               <groupId>org.springframework.boot</groupId>
 
-               <artifactId>spring-boot-starter-web\</artifactId>
+               <artifactId>spring-boot-starter-web</artifactId>
 
            </dependency>
 
@@ -105,11 +105,11 @@ public class StudentController extends BaseController\<Student> {
 
            <dependency>
 
-               <groupId>com.baomidou\</groupId>
+               <groupId>com.baomidou</groupId>
 
-               <artifactId>mybatis-plus-boot-starter\</artifactId>
+               <artifactId>mybatis-plus-boot-starter</artifactId>
 
-               <version>最新版本\</version>
+               <version>最新版本</version>
 
            </dependency>
 

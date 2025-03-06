@@ -69,7 +69,7 @@ public class Student {
 ```
 import com.baomidou.mybatisplus.extension.service.IService;
 
-public interface StudentService extends IService\<Student> {
+public interface StudentService extends IService<Student> {
 
 }
 
@@ -79,7 +79,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 
-public class StudentServiceImpl extends ServiceImpl\<StudentMapper, Student> implements StudentService {
+public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> implements StudentService {
 
 }
 ```
@@ -93,7 +93,7 @@ public class StudentServiceImpl extends ServiceImpl\<StudentMapper, Student> imp
 
 @RequestMapping("/students")
 
-public class StudentController extends BaseController\<Student> {
+public class StudentController extends BaseController<Student> {
 
           // Assume StudentService has been injected
 
@@ -121,9 +121,9 @@ Add the following dependencies to the project's `pom.xml` file:
 
           <dependency>
 
-              <groupId>org.springframework.boot\</groupId>
+              <groupId>org.springframework.boot</groupId>
 
-              <artifactId>spring-boot-starter-web\</artifactId>
+              <artifactId>spring-boot-starter-web</artifactId>
 
           </dependency>
 
@@ -131,11 +131,11 @@ Add the following dependencies to the project's `pom.xml` file:
 
           <dependency>
 
-              <groupId>com.baomidou\</groupId>
+              <groupId>com.baomidou</groupId>
 
-              <artifactId>mybatis-plus-boot-starter\</artifactId>
+              <artifactId>mybatis-plus-boot-starter</artifactId>
 
-              <version>\[latest version]\</version>
+              <version>[latest version]</version>
 
           </dependency>
 
