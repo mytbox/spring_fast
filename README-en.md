@@ -69,7 +69,7 @@ public class Student {
 ```
 import com.baomidou.mybatisplus.extension.service.IService;
 
-public interface StudentService extends IService\<Student> {
+public interface StudentService extends IService<Student> {
 
 }
 
@@ -79,7 +79,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 
-public class StudentServiceImpl extends ServiceImpl\<StudentMapper, Student> implements StudentService {
+public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> implements StudentService {
 
 }
 ```

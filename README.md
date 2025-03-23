@@ -67,7 +67,7 @@ public class Student {
 
 @RequestMapping("/students")
 
-public class StudentController extends BaseController\<Student> {
+public class StudentController extends BaseController<Student> {
 
            // 假设已注入StudentService
 
