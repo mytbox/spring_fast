@@ -167,3 +167,5 @@ Once the project is up and running, you can perform operations on student data t
 ## V. Conclusion
 
 This framework serves as an efficient and convenient development tool for Java developers, significantly enhancing development efficiency and reducing development costs. Whether for the rapid iteration of small - scale projects or the infrastructure building of large - scale projects, it can play a crucial role. We invite you to give it a try and experience how it can make your development process easier and more enjoyable!
+
+![img.png](readme/img/img.png)
